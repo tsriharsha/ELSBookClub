@@ -1,0 +1,10 @@
+2016-07-22 10:51:27,268 [Worker-14] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.beingjavaguys.sample:ELSBookClub:1.0-SNAPSHOT @ /Users/tikkireddys/Desktop/Wspace2/ELSBookClubDev/pom.xml.
+2016-07-22 10:51:28,051 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-22 10:51:28,059 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-22 10:51:28,069 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-22 10:51:28,073 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/tikkireddys/Desktop/Wspace2/ELSBookClubDev/src/test/resources
+2016-07-22 10:51:28,904 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.beingjavaguys.sample:ELSBookClub:1.0-SNAPSHOT @ /Users/tikkireddys/Desktop/Wspace2/ELSBookClubDev/pom.xml.
+2016-07-22 10:51:29,478 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-22 10:51:29,488 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-07-22 10:51:29,497 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-07-22 10:51:29,502 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/tikkireddys/Desktop/Wspace2/ELSBookClubDev/src/test/resources
