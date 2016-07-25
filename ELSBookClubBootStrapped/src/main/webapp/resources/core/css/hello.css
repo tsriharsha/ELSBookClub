@@ -1,0 +1,23 @@
+body {
+	font-family: Georgia;
+}
+
+#theNavbar {
+	background-color: #FF8200;
+	border-color: #FF8200;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-size: 16px;
+    font-family: Georgia
+}
+
+#theNavbarBrand {
+    color: #fff;
+    font-family: Georgia;
+}
+
+.input[type=text] {
+    width: 100%;
+}
