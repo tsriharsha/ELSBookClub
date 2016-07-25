@@ -25,6 +25,7 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li><a href="/ELSBookBootStrapped/adduser">Add User</a></li>
+			<li><a href="/ELSBookBootStrapped/viewbooks">View Books</a></li>
 		</ul>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
