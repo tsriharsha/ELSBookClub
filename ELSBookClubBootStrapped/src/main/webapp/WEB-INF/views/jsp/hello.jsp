@@ -3,76 +3,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Maven + Spring MVC</title>
- 
+<title>Home</title>
+
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/core/css/bootstrap.min.css"
+	var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 </head>
- 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Spring 3 MVC Project</a>
+
+<nav id="theNavbar" class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a id="theNavbarBrand" class="navbar-brand" href="elsevier.com" target="_blank">ELSEVIER</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span>
+						Sign Up</a></li>
+				<li><a href="newlogin.jsp"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
+			</ul>
+		</div>
 	</div>
-  </div>
 </nav>
- 
-<div class="jumbotron">
-  <div class="container">
-	<h1>${title}</h1>
-	<p>
-		<c:if test="${not empty name}">
-			Hello ${name}
-		</c:if>
- 
-		<c:if test="${empty name}">
-			Welcome Welcome!
-		</c:if>
-    </p>
-    <p>
-		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-	</p>
-	</div>
-</div>
- 
+<br />
+<br />
+<br />
+<br />
 <div class="container">
- 
-  <div class="row">
-	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
-		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
-		</p>
+	<div class="col-xs-8 col-xs-offset-2">
+		<h1 align="center">Elsevier Book Club <span class="label label-default"></span></h1>
+		<div class="form-group">
+			<input id="mySearchBar" class="form-control input-lg" name="search" id="inputlg" type="text" placeholder="Search..">
+		</div>
 	</div>
-	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
-		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
-		</p>
-	</div>
-	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
-		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
-		</p>
-	</div>
-  </div>
- 
- 
-  <hr>
 </div>
- 
 <spring:url value="/resources/core/css/hello.js" var="coreJs" />
-<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
- 
+<spring:url value="/resources/core/css/bootstrap.min.js"
+	var="bootstrapJs" />
+
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
- 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 </body>
 </html>
