@@ -47,5 +47,10 @@ public class HelloController {
 
 	}
 	
+	@RequestMapping(value = "/adduser", method = RequestMethod.GET)
+	public String adduser(ModelMap model) {
+		return "adduser";
+	}
+	
 
 }
