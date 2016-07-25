@@ -52,5 +52,9 @@ public class HelloController {
 		return "adduser";
 	}
 	
-
+	@RequestMapping(value = "/viewbooks", method = RequestMethod.GET)
+	public String viewbooks(ModelMap model) {
+		return "viewbooks";
+	}
+	
 }
