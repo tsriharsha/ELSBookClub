@@ -14,6 +14,32 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 </head>
+
+<nav id="theNavbar" class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a id="theNavbarBrand" class="navbar-brand" href="elsevier.com"
+				target="_blank">ELSEVIER</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/ELSBookBootStrapped/adduser">Add User</a></li>
+		</ul>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="signup.jsp"><span
+						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="newlogin.jsp"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
 <body>
 
 	<div class="container">
