@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +28,20 @@ public class Items implements Serializable {
 
 	@Column(name = "name", nullable = false)
 	private String name;
+	
+	@Column(name = "author", nullable = false)
+	private String author;
+	
+	@Column(name = "genre", nullable = false)
+	private String genre;
+	
+	@Column(name = "price", nullable = false)
+	private float price;
+	
+	@Lob
+	@Column(name = "details", nullable = false)
+	private String details;
+	
 	
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy="item", cascade = CascadeType.REMOVE)
@@ -58,6 +73,44 @@ public class Items implements Serializable {
 	
 	public void addOrder(OrderItems orderitem){
 		this.orderItems.add(orderitem);
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	@Override
+	public String toString() {
+		return "Items [isbn=" + isbn + ", name=" + name + ", author=" + author + ", genre=" + genre + ", price=" + price
+				+ ", details=" + details + "]";
 	}
 
 	
