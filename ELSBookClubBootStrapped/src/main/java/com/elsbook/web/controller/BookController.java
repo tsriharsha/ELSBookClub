@@ -41,7 +41,7 @@ public class BookController {
 		}catch(Exception e){
            
 			model.addAttribute("error", "Please enter correct Details or Book already exists.");
-			return "login";
+			return "addbook";
 		}
 	}
 }

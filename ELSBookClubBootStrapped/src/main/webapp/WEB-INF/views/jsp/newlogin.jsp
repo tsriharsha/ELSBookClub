@@ -22,7 +22,7 @@
 	   <div class="container">
        <div class="col-xs-12">
        
-	<form name="loginForm" action="//POST_TO_DB" method="post">
+	<form:form name="loginForm" method="post">
 	
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2">
@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <label class="control-label">Email:</label>
                             <div id="message"></div>
-                            <input type="text" class="form-control input-lg" name="email" id="email" placeholder="name@domain.com"/>
+                            <input type="text" class="form-control input-lg" name="userName" id="email" placeholder="name@domain.com" value="${userN}"required/>
                         </div>                   
                      </div>
                 </div>
@@ -46,26 +46,27 @@
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class="form-group">
                             <label class="control-label">Password:</label>
-                            <input type="text" class="form-control input-lg" name="password" id="password" placeholder="password"/>
+                            <input type="text" class="form-control input-lg" name="password" id="password" placeholder="password" value="${pass}" required/>
                         </div>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
-                        <button type="button" class="btn btn-success">Sign In</button>
+                        <button type="submit" class="btn btn-success">Sign In</button>
                     </div>
+                    <div style="color: red">${error}</div>
                 </div>
                 
                 <div class="row">
                 	<div class="col-xs-6 col-xs-offset-3">
                 		<br>
-                    	<a href="src/main/webapp/WEB-INF/views/jsp/hello.jsp">New user? Register Here.</a>
+                    	<a href="#">New user? Register Here.</a>
                     	<!-- ^^^*******Fix Above Link When Registration Complete -->
                 	</div>
             	</div>
             	
-	 </form> 
+	 </form:form> 
     	</div>
     	</div> 
 
