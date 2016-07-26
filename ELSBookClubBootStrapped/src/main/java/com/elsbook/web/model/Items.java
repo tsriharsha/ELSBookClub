@@ -23,7 +23,7 @@ public class Items implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "isbn", nullable = false)
+	@Column(name = "isbn", nullable = false, unique = true)
 	private long isbn;
 
 	@Column(name = "name", nullable = false)
