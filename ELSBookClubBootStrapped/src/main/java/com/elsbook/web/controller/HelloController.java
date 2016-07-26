@@ -29,11 +29,13 @@ public class HelloController {
 
 	}
 	
+	/*
 	@RequestMapping(value = "/addbook", method = RequestMethod.GET)
 	public String addbook(ModelMap model) {
 		return "addbook";
 
 	}
+	*/
 	
 	@RequestMapping(value = "/newlogin", method = RequestMethod.GET)
 	public String newLogin(ModelMap model) {
@@ -55,6 +57,11 @@ public class HelloController {
 	@RequestMapping(value = "/viewbooks", method = RequestMethod.GET)
 	public String viewbooks(ModelMap model) {
 		return "viewbooks";
+	}
+	
+	@RequestMapping(value = "/viewusers", method = RequestMethod.GET)
+	public String viewusers(ModelMap model) {
+		return "viewusers";
 	}
 	
 }
