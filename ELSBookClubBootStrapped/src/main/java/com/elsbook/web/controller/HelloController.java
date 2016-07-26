@@ -29,11 +29,13 @@ public class HelloController {
 
 	}
 	
+	/*
 	@RequestMapping(value = "/addbook", method = RequestMethod.GET)
 	public String addbook(ModelMap model) {
 		return "addbook";
 
 	}
+	*/
 	
 	@RequestMapping(value = "/newlogin", method = RequestMethod.GET)
 	public String newLogin(ModelMap model) {
