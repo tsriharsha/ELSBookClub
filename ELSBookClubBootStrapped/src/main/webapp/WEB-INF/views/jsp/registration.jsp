@@ -37,33 +37,33 @@
                     <a href="Login.html">Login</a>
                 </div>
             </div>
-			<form:form name="submitForm" method="POST">
+	<form:form name="submitForm" method="POST">
 
 		<div align="center">
 			<table>
 			<tr>
-					<td>User Name</td>
-					<td><input type="text" name="firstName" /></td>
+					<td>First Name</td>
+					<td><input type="text" class="form-control" name="firstName" /></td>
 				</tr>
 				
 				<tr>
-					<td>Password</td>
-					<td><input type="text" name="lastName" /></td>
+					<td>Last Name</td>
+					<td><input type="text" class = "form-control"  name="lastName" /></td>
 				</tr>
 			
 			
 				<tr>
-					<td>User Name</td>
-					<td><input type="email" name="email" /></td>
+					<td>Email</td>
+					<td><input type="email" class="form-control" name="email" /></td>
 				</tr>
 				
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" /></td>
+					<td><input class = "form-control" type="password" name="password" /></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td><button type="submit" class="btn btn-primary">Submit</button></td>
+					<td><button type="submit" class="btn btn-primary form-control">Submit</button></td>
 				</tr>
 			</table>
 
