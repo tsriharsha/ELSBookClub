@@ -4,15 +4,17 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
+import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.elsbook.web.dao.DataDao;
 import com.elsbook.web.model.Employee;
 import com.elsbook.web.model.Food;
 import com.elsbook.web.model.Items;
+import com.elsbook.web.model.OrderItems;
 import com.elsbook.web.model.Orders;
-import com.elsbook.web.model.OrdersItemsAssociation;
 import com.elsbook.web.model.User;
 
 public class DataServicesImpl implements DataServices {
@@ -72,39 +74,13 @@ public class DataServicesImpl implements DataServices {
 	}
 
 	@Override
-	public List<User> getUserList() throws Exception {
+	public Set<User> getUserList() throws Exception {
 		return dataDao.getUserList();
 	}
 
 	@Override
 	public boolean deleteUser(String email) throws Exception {
 		return dataDao.deleteUser(email);
-	}
-
-	@Override
-	public Orders getOrder(long id) throws Exception {
-		return dataDao.getOrder(id);
-	}
-
-	@Override
-	public boolean deleteOrderItemsAssociation(long orderid, long isbn) throws Exception {
-		return dataDao.deleteOrderItemsAssociation(orderid, isbn);
-	}
-
-	@Override
-	public boolean addOrderItemsAssociation(long orderid, long isbn, long amount) throws Exception {
-		OrdersItemsAssociation orderitem = new OrdersItemsAssociation();
-		//orderitem.setOrderid(orderid);
-		//orderitem.setIsbn(isbn);
-		orderitem.setAmount(amount);
-		return dataDao.addOrderItemsAssociation(orderitem);
-	}
-	
-	/***** Generate order with good order id ****/
-	public void generateOrder(String address, String shoppingcart, float pricetotal, int orderstatus, String email, Items item)throws Exception{
-		Orders order = new Orders(address, shoppingcart, pricetotal, orderstatus);
-		dataDao.addOrder(order, email, item);
-		//System.out.println(order.getOrderid());
 	}
 
 	public boolean addItems(Items item)throws Exception{
@@ -114,4 +90,26 @@ public class DataServicesImpl implements DataServices {
 	public Items getItems(long isbn)throws Exception{
 		return dataDao.getItems(isbn);
 	}
+
+	@Override
+	public boolean addOrder(Orders order) throws Exception {
+		return dataDao.addOrders(order);
+	}
+
+	@Override
+	public boolean deleteOrder(long orderid) throws Exception {
+		return dataDao.deleteOrders(orderid);
+	}
+	
+	@Override
+	public Set<Orders> searchOrders(Criterion ordersCriteria) throws Exception {
+		return dataDao.searchOrders(ordersCriteria);
+	}
+
+	@Override
+	public boolean addOrderItems(OrderItems orderitem) throws Exception {
+		return dataDao.addOrderItems(orderitem);
+	}
+
+
 }

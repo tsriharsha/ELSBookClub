@@ -1,21 +1,14 @@
 package com.elsbook.web.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,9 +28,9 @@ public class Items implements Serializable {
 	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@OneToMany
-	@JoinColumn(name="isbn")
-	private List<OrdersItemsAssociation> orderList = new ArrayList<OrdersItemsAssociation>();
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="item", cascade = CascadeType.REMOVE)
+	private Set<OrderItems> orderItems = new HashSet<OrderItems>();
 
 	public long getIsbn() {
 		return isbn;
@@ -55,12 +48,17 @@ public class Items implements Serializable {
 		this.name = name;
 	}
 
-	public List<OrdersItemsAssociation> getOrderList() {
-		return orderList;
+	public Set<OrderItems> getOrderItems() {
+		return orderItems;
 	}
 
-	public void setOrderList(List<OrdersItemsAssociation> orderList) {
-		this.orderList = orderList;
+	public void setOrderItems(Set<OrderItems> orderItems) {
+		this.orderItems = orderItems;
 	}
+	
+	public void addOrder(OrderItems orderitem){
+		this.orderItems.add(orderitem);
+	}
+
 	
 }
