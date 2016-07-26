@@ -43,11 +43,11 @@ public class HelloController {
 
 	}
 	
-	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String registration(ModelMap model) {
 		return "registration";
 
-	}
+	}*/
 	
 	@RequestMapping(value = "/adduser", method = RequestMethod.GET)
 	public String adduser(ModelMap model) {
