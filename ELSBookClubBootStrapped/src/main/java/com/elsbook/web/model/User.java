@@ -93,18 +93,18 @@ public class User implements Serializable {
 		this.orders.add(order);
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname
-				+ "]";
-	}
-
 	public long getUsergroup() {
 		return usergroup;
 	}
 
 	public void setUsergroup(long usergroup) {
 		this.usergroup = usergroup;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + ", usergroup=" + usergroup + "]";
 	}
 
 }

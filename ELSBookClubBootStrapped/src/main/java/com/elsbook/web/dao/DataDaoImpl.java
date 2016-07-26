@@ -203,7 +203,7 @@ public class DataDaoImpl implements DataDao {
 	public boolean addItems(Items item) throws Exception {
 		session = sessionFactory.openSession();
 		tx = session.beginTransaction();
-		session.saveOrUpdate(item);
+		session.save(item);
 		tx.commit();
 		session.close();
 		return false;

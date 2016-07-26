@@ -77,13 +77,13 @@
             <div class="col-xs-6 col-xs-offset-2">
                 <div class="form-group">
                     <label for="ISBN">ISBN</label><br>
-                    <input type="text" id="ISBN" name="ISBN" class="form-control" required>
+                    <input type="number" id="ISBN" name="ISBN" class="form-control" required>
                 </div>
             </div>
             <div class="col-xs-2">
                 <div class="form-group">
                     <label for="price">Price</label><br>
-                    <input type="text" id="price" name="price" class="form-control" required>
+                    <input type="number" id="price" name="price" class="form-control" required>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@
         </div>
         <div class="row">
         	<div class="col-xs-8 col-xs-offset-2">
-        		<div style="color: red">${error}</div>
+        		<div style="color: red; text-align:center">${error}</div>
         	</div>
         </div>
         </form:form>
