@@ -38,16 +38,8 @@ public class LoginController {
  
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean, HttpSession session) {
-        if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
+    	if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
         	User user = null;
-        	try {
-        		Items item = new Items();
-        		item.setIsbn(124241);
-        		item.setName("hellorld");
-
-			} catch (Exception e) {
-				System.out.println(e);
-			}
             if (/*loginBean.getUserName().equals("test") && loginBean.getPassword().equals("test")*/user != null && loginBean.getPassword().equals(user.getPassword())) {
                 model.addAttribute("msg", "welcome " + loginBean.getUserName());
                 session.setAttribute("MEMBER", loginBean);
