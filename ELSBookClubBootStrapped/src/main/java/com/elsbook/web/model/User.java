@@ -40,6 +40,9 @@ public class User implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade=CascadeType.REMOVE)
 	private Set<Orders> orders = new HashSet<Orders>(0);
 	
+	@Column(name = "usergroup")
+	private long usergroup;
+	
 	public long getId() {
 		return id;
 	}
@@ -94,6 +97,14 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [id=" + id + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname
 				+ "]";
+	}
+
+	public long getUsergroup() {
+		return usergroup;
+	}
+
+	public void setUsergroup(long usergroup) {
+		this.usergroup = usergroup;
 	}
 
 }
