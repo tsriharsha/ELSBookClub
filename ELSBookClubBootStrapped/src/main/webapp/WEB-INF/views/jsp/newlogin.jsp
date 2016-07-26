@@ -18,7 +18,6 @@
 
 
 <body>     
-
 	   <div class="container">
        <div class="col-xs-12">
        
@@ -36,7 +35,6 @@
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class="form-group">
                             <label class="control-label">Email:</label>
-                            <div id="message"></div>
                             <input type="text" class="form-control input-lg" name="email" id="email" placeholder="name@domain.com"/>
                         </div>                   
                      </div>
