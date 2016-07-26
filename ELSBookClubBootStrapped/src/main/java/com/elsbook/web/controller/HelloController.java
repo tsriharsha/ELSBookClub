@@ -57,4 +57,9 @@ public class HelloController {
 		return "viewbooks";
 	}
 	
+	@RequestMapping(value = "/viewusers", method = RequestMethod.GET)
+	public String viewusers(ModelMap model) {
+		return "viewusers";
+	}
+	
 }
