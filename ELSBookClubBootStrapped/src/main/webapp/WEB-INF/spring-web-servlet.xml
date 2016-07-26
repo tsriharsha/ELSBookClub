@@ -37,11 +37,10 @@
 			<list>
 				<value>com.elsbook.web.model.Food</value>
 				<value>com.elsbook.web.model.Employee</value>
-				<value>com.elsbook.web.model.Orders</value>
-				<value>com.elsbook.web.model.Items</value>
 				<value>com.elsbook.web.model.User</value>
-				<value>com.elsbook.web.model.OrdersItemsAssociation</value>
-
+				<value>com.elsbook.web.model.OrderItems</value>
+				<value>com.elsbook.web.model.Items</value>
+				<value>com.elsbook.web.model.Orders</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

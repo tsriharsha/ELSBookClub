@@ -1,10 +1,7 @@
 package com.elsbook.web.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,24 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 @Entity
 @Table(name = "user")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User implements Serializable {
-
-	public User(){};
-	public User(String email, String password, String firstname, String lastname) {
-		this.email = email;
-		this.password = password;
-		this.firstname = firstname;
-		this.lastname = lastname;
-	}
 
 	private static final long serialVersionUID = 1L;
 	
@@ -40,7 +25,7 @@ public class User implements Serializable {
 	@Column(name = "userid")
 	private long id;
 
-	@Column(name = "email", nullable = false)
+	@Column(name = "email", nullable = false, unique = true)
 	private String email;
 	
 	@Column(name = "password", nullable = false)
@@ -52,9 +37,8 @@ public class User implements Serializable {
 	@Column(name = "lastname", nullable = false)
 	private String lastname;
 	
-	@OneToMany
-    @JoinColumn(name="email") //we need to duplicate the physical information
-	private List<Orders> userOrders = new ArrayList<Orders>();
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade=CascadeType.REMOVE)
+	private Set<Orders> orders = new HashSet<Orders>(0);
 	
 	public long getId() {
 		return id;
@@ -95,19 +79,21 @@ public class User implements Serializable {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-
-	public List<Orders> getUserOrders() {
-		return userOrders;
-	}
-
-	public void setUserOrders(List<Orders> userOrders) {
-		this.userOrders = userOrders;
-	}
 	
-	public void addOrder(Orders order) {
-	    this.userOrders.add(order);
-	    // Also add the association object to the employee.
-	  }
+	public Set<Orders> getOrders() {
+		return orders;
+	}
+	public void setOrders(Set<Orders> orders) {
+		this.orders = orders;
+	}
+	public void addOrders(Orders order){
+		this.orders.add(order);
+	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname
+				+ "]";
+	}
 
 }
