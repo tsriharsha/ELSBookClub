@@ -51,8 +51,5 @@ public class RegistrationController
 			System.out.println(bean.toString());
 			return "registration";
 		}
-		
-		
-        
 	}
 }

@@ -6,18 +6,26 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import com.elsbook.web.model.Items;
+import com.elsbook.web.model.User;
+import com.elsbook.web.services.DataServices;
 
 @Controller
 public class HelloController {
+
+	@Autowired
+	DataServices dataServices;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
@@ -62,6 +70,31 @@ public class HelloController {
 	public String adduser(ModelMap model) {
 		return "adduser";
 	}
+	@RequestMapping(value="/adduser", method = RequestMethod.POST)
+    public String submit(Model model, HttpSession session, @ModelAttribute("bean") RegistrationBean bean) {
+		String email = bean.getEmail();
+		try {
+			User user = dataServices.getUser(email);
+			if(user != null){
+				model.addAttribute("err", "user already exists");
+				return "adduser"; 
+			}else{
+				user = new User();
+				user.setEmail(bean.getEmail());
+				user.setFirstname(bean.getFirstName());
+				user.setLastname(bean.getLastName());
+				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
+				user.setPassword(encoder.encode(bean.getPassword()));
+				dataServices.addUser(user);
+				return "redirect:hello";
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(bean.toString());
+			return "registration";
+		}
+	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String searchQuery(ModelMap model) {
@@ -90,6 +123,8 @@ public class HelloController {
 		System.out.println(cart);
 		return "redirect:/search";
 	}
+	
+
 	
 	@RequestMapping(value="/testingbcrypt", method = RequestMethod.GET)
 	public String testBcrypt(){

@@ -90,6 +90,10 @@ public class DataServicesImpl implements DataServices {
 	public Items getItems(long isbn)throws Exception{
 		return dataDao.getItems(isbn);
 	}
+	
+	public List<Items> getItemsRest()throws Exception{
+		return dataDao.getItemListRest();
+	}
 
 	@Override
 	public boolean addOrder(Orders order) throws Exception {
