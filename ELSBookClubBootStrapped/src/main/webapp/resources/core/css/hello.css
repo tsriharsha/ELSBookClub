@@ -18,6 +18,10 @@ body {
     font-family: Georgia;
 }
 
+.buttonRight {
+	float: right;
+}
+
 .page-header {
     font-family: Georgia;
     text-align: center;
