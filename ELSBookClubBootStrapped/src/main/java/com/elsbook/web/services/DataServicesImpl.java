@@ -91,8 +91,8 @@ public class DataServicesImpl implements DataServices {
 		return dataDao.getItems(isbn);
 	}
 	
-	public List<Items> getItemsRest()throws Exception{
-		return dataDao.getItemListRest();
+	public boolean deleteItems(long isbn)throws Exception{
+		return dataDao.deleteItems(isbn);
 	}
 
 	@Override

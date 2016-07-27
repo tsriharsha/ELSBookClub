@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -44,36 +44,47 @@
 <!-- Page Content -->
 <body>
 	<div class="container">
+		<form:form name="bookForm" method="POST">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="page-header">
+                    <h2>Books</h2>
+                </div>
+            </div>
+        </div>
 		<div class="row">
-			<div class="col-xs-12">
-				<div class="page-header">
-					<h1>View Books</h1>
-				</div>
-				<div id="msgSubmit" class="h3 text-center hidden"></div>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>ISBN</th>
-							<th>Name</th>
-						</tr>
-					</thead>
+			<div class="table-container">
+				<table class="table table-filter">
 					<tbody>
-						<c:forEach items="${books}" var="books">
+						<tr>
+							<th style="text-align: center">Title</th>
+							<th style="text-align: center">Author</th>
+							<th style="text-align: center">ISBN</th>
+							<th style="text-align: center">Price</th>
+							<th style="text-align: center">Delete</th>
+						</tr>
+					
+       					<c:forEach var="bean" items="${beanList}">
+       						<form:form>
 							<tr>
-								<td>${books.isbn}</td>
+								<td style="text-align: center">${bean.getTitle()}</td>
+								<td style="text-align: center">${bean.getAuthor()}</td>
+								<td style="text-align: center">${bean.getISBN()}</td>
+								<td style="text-align: center">${bean.getPrice()}</td>
+								<td style="text-align: center"><input type="submit" formmethod="post" formaction="viewbooks/${bean.getISBN()}" class="delete btn btn-danger btn-md" value="Delete"></td>
+								
 							</tr>
-							<tr>
-								<td>${books.name}</td>
-							</tr>
-							<tr>
-								<td><a href="#" class="btn btn-warning btn-md">Edit</a></td>
-								<td><button class="delete btn btn-danget btn-md">Delete</button>
-							</tr>
+							</form:form>
 						</c:forEach>
-					</tbody>
+					</tbody>				
 				</table>
+			
 			</div>
 		</div>
+        </form:form>
+		
+								
+								
 	</div>
 </body>
 
