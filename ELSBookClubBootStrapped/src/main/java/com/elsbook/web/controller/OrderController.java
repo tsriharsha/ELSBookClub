@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.elsbook.web.model.Items;
 import com.elsbook.web.controller.TestLibrary;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,8 +39,9 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="/orders/{isbn}", method = RequestMethod.POST)
-	public String submit(Model model, @PathVariable("isbn") long isbn){
+	public String submit(Model model, @PathVariable("isbn") long isbn, HttpServletRequest request){
 		System.out.println(isbn);
-		return "redirect:/orders";
+		String referer = request.getHeader("Referer");
+		return "redirect:"+referer;
 	}
 }

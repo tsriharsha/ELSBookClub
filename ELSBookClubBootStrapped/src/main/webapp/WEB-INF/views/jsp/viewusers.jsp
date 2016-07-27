@@ -3,11 +3,13 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>View books</title>
+<title>View Users</title>
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css"
@@ -44,6 +46,7 @@
 <!-- Page Content -->
 <body>
 	<div class="container">
+	<form:form name="userForm" method="GET">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="page-header">
@@ -59,25 +62,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${users}" var="users">
+						<c:forEach items="${beanList}" var="bean">
 							<tr>
-								<td>${users.firstName}</td>
-							</tr>
-							<tr>
-								<td>${users.lastName}</td>
-							</tr>
-							<tr>
-								<td>${users.emailAddress}</td>
-							</tr>
-							<tr>
-								<td><a href="#" class="btn btn-warning btn-md">Edit</a></td>
-								<td><button class="delete btn btn-danget btn-md">Delete</button>
+								<td>${bean.getfName()}</td>
+								<td>${bean.getlName()}</td>
+								<td>${bean.getEmail()}</td>
+								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="get" formaction="delete/${bean.getEmail()}">
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		</form:form>
 	</div>
 </body>
 
