@@ -37,10 +37,10 @@ public class ShoppingCartController {
 		return "shoppingcart";
 	}
 	
-	@RequestMapping(value="/orders/{isbn}", method = RequestMethod.POST)
+	@RequestMapping(value="/{isbn}", method = RequestMethod.POST)
 	public String submit(Model model, @PathVariable("isbn") long isbn){
 		System.out.println(isbn);
-		return "redirect:/orders";
+		return "redirect:/shoppingcart";
 	}
 	
 }

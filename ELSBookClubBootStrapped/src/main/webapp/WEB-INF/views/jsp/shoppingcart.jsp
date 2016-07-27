@@ -43,7 +43,6 @@
 <body>
 
 	<div class="container">
-		<form:form name="bookForm" method="POST">
           <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="page-header">
@@ -73,7 +72,7 @@
 								<td style="text-align: center">${bean.getISBN()}</td>
 								<td style="text-align: center">${bean.getPrice()}</td>
 								<td style="text-align: center">test</td>
-								<td style="text-align: center"><input type="submit" formmethod="post" formaction="orders/${bean.getISBN()}" value="Delete"></td>
+								<td style="text-align: center"><input type="submit" formmethod="post" formaction="shoppingcart/${bean.getISBN()}" value="Delete"></td>
 							</tr>
 							</form:form>
 						</c:forEach>
@@ -83,7 +82,7 @@
 			</div>
 		</div>
 		
-        </form:form>
+
         
         <div class="buttonRight">
         	<a href="/ELSBookBootStrapped/checkout" class="btn btn-primary">Proceed to Checkout</a>
