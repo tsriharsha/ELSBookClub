@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,10 +30,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String init(Model model, HttpSession session) {
     	LoginBean loginBean = (LoginBean) session.getAttribute("MEMBER");
-    	if(loginBean != null){
-    		model.addAttribute("userN", loginBean.getUserName());
-    		model.addAttribute("pass", loginBean.getPassword());
-    	}
+    	
     	if(loginBean != null  && loginBean.getUserName() != null & loginBean.getPassword() != null){
     		model.addAttribute("msg", "welcome " + loginBean.getUserName());
             return "redirect:success";
@@ -43,15 +41,14 @@ public class LoginController {
  
     @RequestMapping(value="/login", method = RequestMethod.POST)
     public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean, HttpSession session) {
-    	System.out.println(loginBean);
     	try{
     		User user = dataServices.getUser(loginBean.getUserName());
-    		System.out.println(user);
     		if(user == null){
     			model.addAttribute("error", "Invalid Details");
     			return "newlogin";
     		}
-    		if(user.getPassword().equals(loginBean.getPassword()) && user.getEmail().equalsIgnoreCase(loginBean.getUserName())){
+    		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
+    		if(encoder.matches(loginBean.getPassword(), user.getPassword()) && user.getEmail().equalsIgnoreCase(loginBean.getUserName())){
     			model.addAttribute("user",user);
     			return "redirect:/";
     			

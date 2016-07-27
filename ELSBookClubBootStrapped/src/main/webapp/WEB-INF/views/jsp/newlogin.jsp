@@ -46,7 +46,7 @@
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class="form-group">
                             <label class="control-label">Password:</label>
-                            <input type="text" class="form-control input-lg" name="password" id="password" placeholder="password" value="${pass}" required/>
+                            <input type="password" class="form-control input-lg" name="password" id="password" placeholder="password" value="${pass}" required/>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                 <div class="row">
                 	<div class="col-xs-6 col-xs-offset-3">
                 		<br>
-                    	<a href="#">New user? Register Here.</a>
+                    	<a href="registration">New user? Register Here.</a>
                     	<!-- ^^^*******Fix Above Link When Registration Complete -->
                 	</div>
             	</div>

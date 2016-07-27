@@ -34,7 +34,7 @@
 
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2">
-                    <a href="newlogin.jsp">Login</a>
+                    <a href="login">Login</a>
                 </div>
             </div>
 	<form:form name="submitForm" method="POST">
