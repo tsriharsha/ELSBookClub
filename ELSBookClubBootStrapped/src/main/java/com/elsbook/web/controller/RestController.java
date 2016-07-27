@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.elsbook.web.model.Employee;
 import com.elsbook.web.model.Food;
+import com.elsbook.web.model.Items;
 import com.elsbook.web.model.Status;
 import com.elsbook.web.services.DataServices;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/rest")
 public class RestController {
 
 	@Autowired
@@ -91,6 +92,21 @@ public class RestController {
 		return employeeList;
 	}
 
+	@RequestMapping(value = "/list/items", method = RequestMethod.GET)
+	public @ResponseBody
+	List<Items> getItems() {
+
+		List<Items> itemList = null;
+		try {
+			itemList = TestLibrary.dummyItemsList(10);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return itemList;
+	}
+	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	Status deleteEmployee(@PathVariable("id") long id) {

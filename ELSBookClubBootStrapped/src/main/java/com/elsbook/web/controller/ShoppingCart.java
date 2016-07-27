@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.elsbook.web.model.User;
 import com.elsbook.web.services.DataServices;
 
 public class ShoppingCart {
@@ -34,13 +35,28 @@ public class ShoppingCart {
 		this.price += new Float(price);
 	}
 	
+	public void removeFromCart(String isbn, String price) {
+		boolean exists = false;
+		for(String cartItem : isbnList){
+			if(cartItem.equals(isbn)){
+				exists = true;
+				int index = this.isbnList.indexOf(cartItem);
+				isbnList.remove(index);
+				amount.remove(index);
+			}
+		}
+		if(exists == false){
+			this.price -= new Float(price);
+		}
+	}
+	
 	public void destroy(){
 		isbnList = new ArrayList<String>();
 		amount = new ArrayList<Integer>();
 	}
 	
-	public void generateOrder(ArrayList<String> list, ArrayList<Integer> amount, long price, String address){
-		
+	public boolean generateOrder(User user, String address){
+		return false;
 	}
 
 	@Override

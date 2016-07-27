@@ -29,6 +29,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   <p>
                       <a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}" class="btn btn-primary" >Add to cart!</a>
+                      <a href="removefromcart/${bean.getIsbn()}" class="btn btn-primary" >Remove from cart!</a>
                   </p>
               </div>
           </div>

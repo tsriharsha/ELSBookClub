@@ -49,5 +49,6 @@ public interface DataDao {
 	//ORDERITEMS TABLE DAO FUNCTIONS FOR BOOK CLUB ADMINS
 	public boolean addOrderItems(OrderItems orderitem) throws Exception;
 	public boolean deleteOrderItems(long orderid, long itemid) throws Exception;
+	public List<Items> getItemListRest() throws Exception;
 	
 }
