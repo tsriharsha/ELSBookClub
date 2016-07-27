@@ -32,6 +32,7 @@ public interface DataServices {
 	
 	public boolean addItems(Items item) throws Exception;
 	public Items getItems(long isbn) throws Exception;
+	public List<Items> getItemsRest()throws Exception;
 	
 	public boolean addOrder(Orders order) throws Exception;
 	public boolean deleteOrder(long orderid) throws Exception;

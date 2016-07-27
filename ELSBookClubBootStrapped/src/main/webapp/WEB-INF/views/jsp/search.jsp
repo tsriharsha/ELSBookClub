@@ -10,6 +10,35 @@
 <title>Search</title>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+ 
+<spring:url value="/resources/core/css/hello.css" var="coreCss" />
+<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<link href="${bootstrapCss}" rel="stylesheet" />
+<link href="${coreCss}" rel="stylesheet" />
+	   <div class="container">
+       <div class="col-xs-12">
+	<div class="row text-center">
+	   <c:forEach var="bean" items="${searchlist}">
+      <div class="col-md-3 col-sm-6">
+          <div class="thumbnail">
+              <img src="http://placehold.it/500x300" alt="">
+              <div class="caption">
+                  <h5>${bean.getIsbn() }</h5>
+                  <h3 style="color:blue">${bean.getName() }</h3>
+                  <h4 style="color:red">Price: $${bean.getPrice() }</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p>
+                      <a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}" class="btn btn-primary" >Add to cart!</a>
+                      <a href="removefromcart/${bean.getIsbn()}" class="btn btn-primary" >Remove from cart!</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+        </c:forEach>
+  </div>
+>>>>>>> develop
 
 	<spring:url value="/resources/core/css/hello.css" var="coreCss" />
 	<spring:url value="/resources/core/css/bootstrap.min.css"

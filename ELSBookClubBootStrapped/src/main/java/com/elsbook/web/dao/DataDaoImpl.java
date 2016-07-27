@@ -222,6 +222,18 @@ public class DataDaoImpl implements DataDao {
 		session.close();
 		return itemset;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Items> getItemListRest() throws Exception {
+		session = sessionFactory.openSession();
+		tx = session.beginTransaction();
+		List<Items> itemList = session.createCriteria(Items.class).list();
+		//System.out.println("test");
+		tx.commit();
+		session.close();
+		return itemList;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
