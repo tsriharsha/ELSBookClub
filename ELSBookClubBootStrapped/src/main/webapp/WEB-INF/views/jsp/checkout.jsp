@@ -102,10 +102,11 @@
                 </div>
             </div>
         </div>
+        <br><br>
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="form-group">
-                    <input type="submit" class="form-control">
+                    <input type="submit" class="btn btn-primary btn-lg" style="width: 100%">
                 </div>
             </div>
         </div>

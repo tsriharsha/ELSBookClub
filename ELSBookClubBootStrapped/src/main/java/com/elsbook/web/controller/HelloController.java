@@ -58,10 +58,10 @@ public class HelloController {
 	public String viewbooks(ModelMap model) {
 		return "viewbooks";
 	}
-	
+	/*
 	@RequestMapping(value = "/viewusers", method = RequestMethod.GET)
 	public String viewusers(ModelMap model) {
 		return "viewusers";
 	}
-	
+	*/
 }
