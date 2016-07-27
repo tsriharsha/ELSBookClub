@@ -29,7 +29,7 @@
 		</ul>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="signup.jsp"><span
+				<li><a href="registration"><span
 						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 				<li><a href="login"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -56,11 +56,11 @@
 <spring:url value="/resources/core/css/hello.js" var="coreJs" />
 <spring:url value="/resources/core/css/bootstrap.min.js"
 	var="bootstrapJs" />
-
+	
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 
 </body>
 </html>

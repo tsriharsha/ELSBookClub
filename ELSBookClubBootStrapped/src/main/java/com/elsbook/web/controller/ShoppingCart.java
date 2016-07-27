@@ -8,14 +8,17 @@ import com.elsbook.web.services.DataServices;
 
 public class ShoppingCart {
 
+
 	@Autowired
 	DataServices dataServices;
 	
-	private ArrayList<String> isbnList;
-	private ArrayList<Integer> amount;
-	private float price;
+	private ArrayList<String> isbnList = new ArrayList<String>();
+	private ArrayList<Integer> amount = new ArrayList<Integer>();
+	private float price = 0;
 	
-	public void add(String isbn, long price){
+	
+	
+	public void addToCart(String isbn, String price){
 		boolean exists = false;
 		for(String cartItem : isbnList){
 			if(cartItem.equals(isbn)){
@@ -28,6 +31,7 @@ public class ShoppingCart {
 			isbnList.add(isbn);
 			amount.add(1);
 		}
+		this.price += new Float(price);
 	}
 	
 	public void destroy(){
@@ -37,6 +41,28 @@ public class ShoppingCart {
 	
 	public void generateOrder(ArrayList<String> list, ArrayList<Integer> amount, long price, String address){
 		
+	}
+
+	@Override
+	public String toString() {
+		return "ShoppingCart [isbnList=" + isbnList + ", amount=" + amount
+				+ ", price=" + price + "]";
+	}
+
+	public ArrayList<String> getIsbnList() {
+		return isbnList;
+	}
+
+	public void setIsbnList(ArrayList<String> isbnList) {
+		this.isbnList = isbnList;
+	}
+
+	public ArrayList<Integer> getAmount() {
+		return amount;
+	}
+
+	public void setAmount(ArrayList<Integer> amount) {
+		this.amount = amount;
 	}
 	
 	
