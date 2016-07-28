@@ -23,12 +23,11 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="/ELSBookBootStrapped/">Home</a></li>
-				<li><a href="/ELSBookBootStrapped/search">Browse</a></li>
-				<li><input id="mySearchBar" type="text" class="form-control" placeholder="Search..." name="q"></li>
+				<li><a href="/ELSBookBootStrapped/">Home</a>
+				<li><a href="/ELSBookBootStrapped/">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="viewmycart"><span
+				<li><a href="shoppingcart"><span
 						class="glyphicon glyphicon-shopping-cart">
 							(${shoppingcart.getIsbnList().size()})</span></a></li>
 				<c:choose>
@@ -38,23 +37,40 @@
 						<li><a href="login"><span
 								class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</c:when>
-					<c:when test="${loggedin.getUsergroup() == 2}">
-					
+					<c:when test="${loggedin != null && loggedin.getUsergroup() == 1  }">
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Welcome,
+								${loggedin.getFirstname()}<span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="orders">My Order History</a></li>
+								<li><a href="logout"><span
+								class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+							</ul>
+					</li>
+						
+					</c:when>
+					<c:when test="${loggedin != null && loggedin.getUsergroup() == 2 }">
 					`<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">Welcome,
 								${loggedin.getFirstname()}<span class="caret"></span>
 						</a>
 							<ul class="dropdown-menu">
 								<li><a href="orders">My Order History</a></li>
-								<li><a href="logout">Logout</a></li>
-							</ul></li>
+								<li><a href="addbook">Add Books</a></li>
+								<li><a href="viewbooks">View Books</a></li>
+								<li><a href="adduser">Add User</a></li>
+								<li><a href="viewusers">View Users</a></li>
+								<li><a href="logout"><span
+								class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+							</ul>
+					</li>
 					</c:when>
-
 				</c:choose>
 			</ul>
 		</div>
 	</div>
-	</nav>
+</nav>
 <body>
 	<spring:url value="/resources/core/css/hello.css" var="coreCss" />
 	<spring:url value="/resources/core/css/bootstrap.min.css"

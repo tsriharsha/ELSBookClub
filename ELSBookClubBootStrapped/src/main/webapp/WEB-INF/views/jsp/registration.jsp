@@ -25,9 +25,6 @@
 			<a id="theNavbarBrand" class="navbar-brand" href="elsevier.com"
 				target="_blank">ELSEVIER</a>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/ELSBookBootStrapped/adduser">Add User</a></li>
-		</ul>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/ELSBookBootStrapped/newlogin"><span
@@ -45,11 +42,6 @@
 					<div class="page-header">
 						<h1>Registration</h1>
 					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-md-8 col-md-offset-2">
-					<a href="login">Login</a>
 				</div>
 			</div>
 			<form:form name="submitForm" method="POST">

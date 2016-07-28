@@ -35,7 +35,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>com.elsbook.web.model.Food</value>
+			
 				<value>com.elsbook.web.model.Employee</value>
 				<value>com.elsbook.web.model.User</value>
 				<value>com.elsbook.web.model.OrderItems</value>

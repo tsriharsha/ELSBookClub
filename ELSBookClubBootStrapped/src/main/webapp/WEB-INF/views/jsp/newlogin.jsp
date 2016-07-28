@@ -29,10 +29,6 @@
 				target="_blank">ELSEVIER</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/ELSBookBootStrapped/adduser"><span
-						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			</ul>
 		</div>
 	</div>
 </nav>
