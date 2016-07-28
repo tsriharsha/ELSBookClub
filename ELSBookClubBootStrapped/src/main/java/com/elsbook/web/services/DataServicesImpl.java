@@ -117,9 +117,13 @@ public class DataServicesImpl implements DataServices {
 	}
 
 	@Override
-	public List<Items> getItemsRest() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> getItemsRest() throws Exception {
+		return dataDao.getItemListRest();
+	}
+
+	@Override
+	public Set<Items> searchItems(Criterion itemsCriteria) throws Exception {
+		return dataDao.searchItems(itemsCriteria);
 	}
 
 	

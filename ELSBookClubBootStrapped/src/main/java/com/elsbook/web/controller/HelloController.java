@@ -1,7 +1,9 @@
 package com.elsbook.web.controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,7 +14,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -45,6 +51,34 @@ public class HelloController {
 		return model;
 
 	}
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String searchQuery(@RequestParam String search, Model model, HttpSession session) {
+		
+		int numitems = 5;
+		List<Items> itemslist = new ArrayList<Items>();// = TestLibrary.dummyItemsList(numitems);
+		//System.out.println(itemslist.toString());
+		//System.out.println(beanList.toString());
+		//System.out.println(itemslist);
+		//model.addAttribute("searchlist", itemslist);
+		//return "search";
+		System.out.println(search);
+		//String[] sep = search.split(" ");
+		Set<Items> itemset = new HashSet<Items>();
+			Criterion criteria;
+			if(search.matches("[-+]?\\d*\\.?\\d+")){
+				criteria = Restrictions.or(Restrictions.like("author", search, MatchMode.ANYWHERE), Restrictions.or(Restrictions.like("name", search, MatchMode.ANYWHERE), Restrictions.like("isbn", new Long(search))));
+			}
+			else{
+				criteria = Restrictions.or(Restrictions.like("author", search, MatchMode.ANYWHERE), Restrictions.like("name", search, MatchMode.ANYWHERE));
+			}
+			try {
+				itemset.addAll(dataServices.searchItems(criteria));
+				session.setAttribute("searchlist", itemset);
+			} catch (Exception e) {}
+			return "search";
+		
+	}
+
 	
 	/*
 	@RequestMapping(value = "/addbook", method = RequestMethod.GET)
@@ -96,17 +130,6 @@ public class HelloController {
 		}
 	}
 	
-	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchQuery(ModelMap model) {
-		
-		int numitems = 5;
-		List<Items> itemslist = TestLibrary.dummyItemsList(numitems);
-		//System.out.println(itemslist.toString());
-		//System.out.println(beanList.toString());
-		//System.out.println(itemslist);
-		model.addAttribute("searchlist", itemslist);
-		return "search";
-	}
 	
 	@RequestMapping(value = "/addtocart/{query}", method = RequestMethod.GET)
 	public String addtocart(ModelMap model, @PathVariable("query") String query, HttpSession session) {

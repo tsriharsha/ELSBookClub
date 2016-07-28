@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.elsbook.web.model.Items;
 import com.elsbook.web.model.User;
 import com.elsbook.web.services.DataServices;
 
@@ -25,7 +26,7 @@ public class ShoppingCart {
 			if(cartItem.equals(isbn)){
 				exists = true;
 				int index = this.isbnList.indexOf(cartItem);
-				amount.add(index, amount.get(index)+1);
+				amount.set(index, amount.get(index)+1);
 			}
 		}
 		if(exists == false){

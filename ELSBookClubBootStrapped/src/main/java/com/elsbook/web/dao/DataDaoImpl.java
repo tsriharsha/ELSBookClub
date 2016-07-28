@@ -1,5 +1,6 @@
 package com.elsbook.web.dao;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -223,16 +224,21 @@ public class DataDaoImpl implements DataDao {
 		return itemset;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Items> getItemListRest() throws Exception {
+	public List<String> getItemListRest() throws Exception {
 		session = sessionFactory.openSession();
 		tx = session.beginTransaction();
 		List<Items> itemList = session.createCriteria(Items.class).list();
+		List<String> parts = new ArrayList<String>();
+		for(Items item : itemList){
+			parts.add(new Long(item.getIsbn()).toString());
+			parts.add(item.getAuthor());
+			parts.add(item.getName());
+		}
 		//System.out.println("test");
 		tx.commit();
 		session.close();
-		return itemList;
+		return parts;
 	}
 
 	@SuppressWarnings("unchecked")
