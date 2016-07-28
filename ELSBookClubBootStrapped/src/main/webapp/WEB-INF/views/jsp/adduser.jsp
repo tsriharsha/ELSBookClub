@@ -35,7 +35,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-2">
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
 				<div class="page-header">
 					<h1>Add New User</h1>
 					<div class="clearfix"></div>
@@ -43,12 +43,12 @@
 				<!--First & Last Name-->
 				<div class="form-group">
 					<div class="row">
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<label id="lblFirstName" class="control-label">First Name</label>
 							<input id="txtFirstName" class="form-control input-lg"
 								placeholder="First Name" autofocus required>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-12 col-md-6">
 							<label id="lblLastName" class="control-label">Last Name</label> <input
 								id="txtLastName" class="form-control input-lg"
 								placeholder="Last Name" required>

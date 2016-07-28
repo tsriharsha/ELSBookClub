@@ -28,8 +28,9 @@
 				<li class="active"><a href="/ELSBookBootStrapped/">Home</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li>${shoppingcart.getIsbnList().size()}<a href="viewmycart"><span
-								class="glyphicon glyphicon-shopping-cart"></span></a></li>
+				<li><a href="viewmycart"><span
+						class="glyphicon glyphicon-shopping-cart">
+							(${shoppingcart.getIsbnList().size()})</span></a></li>
 				<c:choose>
 					<c:when test="${loggedin == null}">
 						<li><a href="registration"><span
@@ -38,28 +39,17 @@
 								class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</c:when>
 					<c:when test="${loggedin != null}">
-						<li>
-							<div class="dropdown">
-								<a class="dropdown-toggle" type="button" id="menu1"
-									data-toggle="dropdown"> Welcome, <span
-									class="glyphicon glyphicon-user"></span>${loggedin.getFirstname()}<span
-									class="caret"></span></a>
-								<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-									<li role="presentation"><a role="menuitem" tabindex="-1"
-										href="orders">View my orders</a></li>
-									<li role="presentation"><a role="menuitem" tabindex="-1"
-										href="#">CSS</a></li>
-									<li role="presentation"><a role="menuitem" tabindex="-1"
-										href="#">JavaScript</a></li>
-									<li role="presentation" class="divider"></li>
-									<li role="presentation"><a role="menuitem" tabindex="-1"
-										href="logout">Logout</a></li>
-								</ul>
-							</div>
-						</li>
+					`<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Welcome,
+								${loggedin.getFirstname()}<span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="orders">My Order History</a></li>
+								<li><a href="logout">Logout</a></li>
+								<li><a href="#">Page 1-3</a></li>
+							</ul></li>
 					</c:when>
 				</c:choose>
-
 			</ul>
 		</div>
 	</div>
