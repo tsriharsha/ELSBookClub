@@ -41,7 +41,7 @@ public class User implements Serializable {
 	private Set<Orders> orders = new HashSet<Orders>(0);
 	
 	@Column(name = "usergroup")
-	private long usergroup;
+	private long usergroup = 1;
 	
 	public long getId() {
 		return id;

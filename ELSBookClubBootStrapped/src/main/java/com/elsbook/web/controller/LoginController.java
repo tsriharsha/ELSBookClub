@@ -29,11 +29,10 @@ public class LoginController {
 	
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String init(Model model, HttpSession session) {
-    	LoginBean loginBean = (LoginBean) session.getAttribute("MEMBER");
-    	
-    	if(loginBean != null  && loginBean.getUserName() != null & loginBean.getPassword() != null){
-    		model.addAttribute("msg", "welcome " + loginBean.getUserName());
-            return "redirect:success";
+    	User loginBean = (User) session.getAttribute("loggedin");
+    	if(loginBean != null  && loginBean.getEmail() != null & loginBean.getPassword() != null){
+    		model.addAttribute("msg", "welcome " + loginBean.getEmail());
+            return "redirect:/";
     	}
         model.addAttribute("msg", "Please Enter Your Login Details");
         return "newlogin";
@@ -50,6 +49,7 @@ public class LoginController {
     		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
     		if(encoder.matches(loginBean.getPassword(), user.getPassword()) && user.getEmail().equalsIgnoreCase(loginBean.getUserName())){
     			model.addAttribute("user",user);
+    			session.setAttribute("loggedin",user);
     			return "redirect:/";
     			
     		}else{
@@ -62,4 +62,10 @@ public class LoginController {
 			return "newlogin";
     	}
     }
+    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session){
+    	session.invalidate();
+    	return "redirect:login";
+    }
+
 }

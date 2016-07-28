@@ -43,6 +43,8 @@ public class RegistrationController
 				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(15);
 				user.setPassword(encoder.encode(bean.getPassword()));
 				dataServices.addUser(user);
+				System.out.println(user);
+				session.setAttribute("loggedin", user);
 				return "hello";
 			}
 		} catch (Exception e) {
