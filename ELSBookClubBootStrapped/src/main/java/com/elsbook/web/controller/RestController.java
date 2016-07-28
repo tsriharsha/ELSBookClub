@@ -94,11 +94,12 @@ public class RestController {
 
 	@RequestMapping(value = "/list/items", method = RequestMethod.GET)
 	public @ResponseBody
-	List<Items> getItems() {
+	List<String> getItems() {
 
-		List<Items> itemList = null;
+		List<String> itemList = null;
 		try {
-			itemList = TestLibrary.dummyItemsList(10);
+			//itemList = TestLibrary.dummyItemsList(10);
+			itemList = dataServices.getItemsRest();
 
 		} catch (Exception e) {
 			e.printStackTrace();
