@@ -28,19 +28,8 @@ public class ViewUserController {
 	@RequestMapping(value="/viewusers", method = RequestMethod.GET)
 	public String init(Model model, HttpSession session){
 		int numitems = 5;
-		List<UserBean> beanList = new ArrayList<UserBean>();
 		List<User> userlist = TestLibrary.dummyUserList(numitems);
-		//System.out.println(itemslist.toString());
-		for(int i = 0; i < numitems; i++){
-			UserBean bean = new UserBean();
-			bean.setfName(userlist.get(i).getFirstname());
-			bean.setlName(userlist.get(i).getLastname());
-			bean.setEmail(userlist.get(i).getEmail());
-			//System.out.println(bean.toString());
-			beanList.add(bean);
-		}
-		System.out.println(beanList.toString());
-		model.addAttribute("beanList", beanList);
+		model.addAttribute("userlist", userlist);
 		return "viewusers";
 	}
 	
