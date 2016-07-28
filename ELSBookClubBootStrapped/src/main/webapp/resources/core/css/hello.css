@@ -47,3 +47,7 @@ body {
     color: #007398;
    background: #007398;
  }
+ 
+ .rightButton {
+ 	float: right;
+ }
