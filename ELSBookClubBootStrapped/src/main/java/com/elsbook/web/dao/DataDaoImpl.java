@@ -253,6 +253,20 @@ public class DataDaoImpl implements DataDao {
 	}
 	
 	@Override
+	public boolean deleteItems(long isbn) throws Exception {
+		session = sessionFactory.openSession();
+		List<Items> itemsList = session.createCriteria(Items.class)
+				.add(Restrictions.like("isbn", isbn))
+				.list();
+		//Object o = session.load(User.class, );
+		tx = session.getTransaction();
+		session.beginTransaction();
+		session.delete(itemsList.get(0));
+		tx.commit();
+		return false;
+	}
+	
+	@Override
 	public boolean addOrders(Orders order) throws Exception {
 		session = sessionFactory.openSession();
 		tx = session.beginTransaction();
@@ -328,7 +342,6 @@ public class DataDaoImpl implements DataDao {
 		tx.commit();
 		return false;
 	}
-
 
 
 	
