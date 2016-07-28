@@ -20,20 +20,8 @@ public class ShoppingCartController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String init(Model model, HttpSession session){
 		int numitems = 5;
-		List<OrderBean> beanList = new ArrayList<OrderBean>();
-		List<Items> itemslist = TestLibrary.dummyItemsList(numitems);
-		//System.out.println(itemslist.toString());
-		for(int i = 0; i < numitems; i++){
-			OrderBean bean = new OrderBean();
-			bean.setISBN(itemslist.get(i).getIsbn());
-			bean.setTitle(itemslist.get(i).getName());
-			bean.setAuthor(itemslist.get(i).getAuthor());
-			bean.setPrice(itemslist.get(i).getPrice());
-			//System.out.println(bean.toString());
-			beanList.add(bean);
-		}
-		//System.out.println(beanList.toString());
-		model.addAttribute("beanList", beanList);
+		List<Items> shoppingcartlist = TestLibrary.dummyItemsList(numitems);
+		model.addAttribute("shoppingcartlist", shoppingcartlist);
 		return "shoppingcart";
 	}
 	
