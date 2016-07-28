@@ -67,7 +67,7 @@
 								<td>${bean.getfName()}</td>
 								<td>${bean.getlName()}</td>
 								<td>${bean.getEmail()}</td>
-								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="get" formaction="delete/${bean.getEmail()}">
+								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="post" formaction="delete/${bean.getEmail()}">
 							</tr>
 						</c:forEach>
 					</tbody>
