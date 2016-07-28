@@ -136,10 +136,10 @@ public class HelloController {
 		return "hello";
 	}
 	
-	@RequestMapping(value = "/viewbooks", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/viewbooks", method = RequestMethod.GET)
 	public String viewbooks(ModelMap model) {
 		return "viewbooks";
-	}
+	}*/
 	/*
 	@RequestMapping(value = "/viewusers", method = RequestMethod.GET)
 	public String viewusers(ModelMap model) {

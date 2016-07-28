@@ -39,6 +39,7 @@ public interface DataDao {
 	public Items getItems(Long isbn) throws Exception;
 	public Set<Items> getItemList() throws Exception;
 	public Set<Items> searchItems(Criterion itemCriteria) throws Exception;
+	public boolean deleteItems(long isbn) throws Exception;
 	
 	//ORDERS TABLE DAO FUNCTIONS FOR BOOK CLUB ADMINS
 	public boolean addOrders(Orders order) throws Exception;

@@ -6,6 +6,8 @@ import com.elsbook.web.model.Items;
 import com.elsbook.web.services.DataServices;
 import com.elsbook.web.controller.TestLibrary;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ViewBooksController {
 
-	DataServices dataservices;
+	@Autowired
+	DataServices dataServices;
 	
 	@RequestMapping(value="/viewbooks", method = RequestMethod.GET)
 	public String init(Model model, HttpSession session){
@@ -40,7 +43,12 @@ public class ViewBooksController {
 	
 	@RequestMapping(value="/viewbooks/{isbn}", method = RequestMethod.POST)
 	public String submit(Model model, @PathVariable("isbn") long isbn){
-		dataServices.deleteItems(isbn);
+		try {
+			dataServices.deleteItems(isbn);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "redirect:viewbooks";
 	}
 }

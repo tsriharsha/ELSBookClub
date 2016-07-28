@@ -29,10 +29,10 @@ public interface DataServices {
 	public Set<User> getUserList() throws Exception;
 	public boolean deleteUser(String email) throws Exception;
 	
-	
 	public boolean addItems(Items item) throws Exception;
 	public Items getItems(long isbn) throws Exception;
 	public List<Items> getItemsRest()throws Exception;
+	public boolean deleteItems(long isbn)throws Exception;
 	
 	public boolean addOrder(Orders order) throws Exception;
 	public boolean deleteOrder(long orderid) throws Exception;

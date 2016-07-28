@@ -91,6 +91,7 @@ public class DataServicesImpl implements DataServices {
 		return dataDao.getItems(isbn);
 	}
 	
+	@Override
 	public boolean deleteItems(long isbn)throws Exception{
 		return dataDao.deleteItems(isbn);
 	}
@@ -114,6 +115,14 @@ public class DataServicesImpl implements DataServices {
 	public boolean addOrderItems(OrderItems orderitem) throws Exception {
 		return dataDao.addOrderItems(orderitem);
 	}
+
+	@Override
+	public List<Items> getItemsRest() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 
 }
