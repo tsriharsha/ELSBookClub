@@ -10,36 +10,6 @@
 <title>Search</title>
 </head>
 <body>
-<<<<<<< HEAD
-=======
- 
-<spring:url value="/resources/core/css/hello.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-<link href="${bootstrapCss}" rel="stylesheet" />
-<link href="${coreCss}" rel="stylesheet" />
-	   <div class="container">
-       <div class="col-xs-12">
-	<div class="row text-center">
-	   <c:forEach var="bean" items="${searchlist}">
-      <div class="col-md-3 col-sm-6">
-          <div class="thumbnail">
-              <img src="http://placehold.it/500x300" alt="">
-              <div class="caption">
-                  <h5>${bean.getIsbn() }</h5>
-                  <h3 style="color:blue">${bean.getName() }</h3>
-                  <h4 style="color:red">Price: $${bean.getPrice() }</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  <p>
-                      <a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}" class="btn btn-primary" >Add to cart!</a>
-                      <a href="removefromcart/${bean.getIsbn()}" class="btn btn-primary" >Remove from cart!</a>
-                  </p>
-              </div>
-          </div>
-      </div>
-        </c:forEach>
-  </div>
->>>>>>> develop
-
 	<spring:url value="/resources/core/css/hello.css" var="coreCss" />
 	<spring:url value="/resources/core/css/bootstrap.min.css"
 		var="bootstrapCss" />
@@ -54,19 +24,73 @@
 						<div class="thumbnail">
 							<img src="http://placehold.it/500x300" alt="">
 							<div class="caption">
-								<h5>${bean.getIsbn() }</h5>
-								<h3 style="color: blue">${bean.getName() }</h3>
-								<h4 style="color: red">Price: $${bean.getPrice() }</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+								<h5>ISBN: ${bean.getIsbn() }</h5>
+								<h3 style="color: #FF8200">${bean.getName() }</h3>
+								<h4 style="color: #007398">Price: $${bean.getPrice() }</h4>
+								<p style="color: #A7A8AA">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 								<div class="col-xs-12" style="text-align: center;">
 									<a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}"
-										class="btn btn-primary" style="width: 100%;">Add to cart!</a>
+										class="btn btn-primary" style="width: 100%;">Add to Cart</a>
 									<hr id="addToCartHR" />
 								</div>
 
 								<div class="btn-group btn-group-justified">
-									<button class="btn btn-warning" style="width: 43%;">Print</button>
-									<button class="btn btn-success" style="width: 44%;">Download</button>
+									<button type="button" class="btn btn-warning"
+										data-toggle="modal" data-target="#printModal"
+										style="width: 43%;">Print</button>
+
+									<button type="button" class="btn btn-success"
+										data-toggle="modal" data-target="#downloadModal"
+										style="width: 44%;">Download</button>
+								</div>
+
+								<!--Print Modal -->
+								<div id="printModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+
+										<!-- Modal Content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 style="text-align: left;" class="modal-title">Print
+													${bean.getName() }</h4>
+											</div>
+											<div class="modal-body">
+												<p>You must proceed to checkout in order to print this
+													content. Please click 'Add to Cart' below!</p>
+											</div>
+											<div class="modal-footer">
+												<a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}"
+													class="btn btn-primary" style="width: 100%;">Add to
+													Cart</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<!--Download Modal -->
+								<div id="downloadModal" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+
+										<!--Modal Content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 style="text-align: left;" class="modal-title">Download ${bean.getName() }</h4>
+											</div>
+											<div class="modal-body">
+												<p>You must proceed to checkout in order to download this
+													content to your device. Please click 'Add to Cart' below!</p>
+											</div>
+											<div class="modal-footer">
+												<a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}"
+													class="btn btn-primary" style="width: 100%;">Add to
+													Cart</a>
+											</div>
+										</div>
+
+									</div>
 								</div>
 							</div>
 						</div>
@@ -76,9 +100,16 @@
 
 		</div>
 	</div>
-	
+
+	<script src="${coreJs}"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<script src="<c:url value="/resources/js/jquery.1.9.1.min.js" />"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-
 </body>
 </html>
