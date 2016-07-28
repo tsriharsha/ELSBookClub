@@ -46,14 +46,14 @@
     <div class="container">
     	<form:form name="checkForm" method="POST">
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="page-header">
                     <h2>Check Out</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="form-group">
                     <label for="name">Name On Card</label><br>
                     <input type="text" id="name" name="name" class="form-control" required>
@@ -61,13 +61,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6 col-xs-offset-2">
+            <div class="col-xs-12 col-md-6 col-md-offset-2">
                 <div class="form-group">
                     <label for="CCN">Credit Card Number</label><br>
                     <input type="text" id="CCN" name="CCN" class="form-control" required placeholder="####-####-####-####">
                 </div>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                     <label for="expires">Expiration Date</label><br>
                     <input type="text" id="expires" name="expires" class="form-control" required placeholder="MM/YY">
@@ -75,13 +75,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4 col-xs-offset-2">
+            <div class="col-xs-12 col-md-4 col-md-offset-2">
                 <div class="form-group">
                     <label for="country">Country</label><br>
                     <input type="text" id="country" name="country" class="form-control" required>
                 </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-md-4">
                 <div class="form-group">
                     <label for="state">State</label><br>
                     <input type="text" id="state" name="state" class="form-control" required>
@@ -89,13 +89,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6 col-xs-offset-2">
+            <div class="col-xs-12 col-md-6 col-md-offset-2">
                 <div class="form-group">
                     <label for="address">Address</label><br>
                     <input type="text" id="address" name="address" class="form-control" required>
                 </div>
             </div>
-             <div class="col-xs-2">
+             <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                     <label for="zip">Zip Code</label><br>
                     <input type="text" id="zip" name="zip" class="form-control" required>
@@ -104,7 +104,7 @@
         </div>
         <br><br>
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary btn-lg" style="width: 100%">
                 </div>

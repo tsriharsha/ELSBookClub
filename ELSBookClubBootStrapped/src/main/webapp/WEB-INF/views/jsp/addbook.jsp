@@ -45,14 +45,14 @@
 	<div class="container">
 		<form:form name="bookForm" method="POST">
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="page-header">
                     <h2>Add a book</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="form-group">
                     <label for="title">Book Title</label>
                     <input type="text" id="title" name="title" class="form-control" required>
@@ -60,13 +60,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-5 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="form-group">
                     <label for="author">Author</label>
                     <input type="text" id="author" name="author" class="form-control" required>
                 </div>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-12 col-md-3">
                 <div class="form-group">
                     <label for="genre">Genre</label><br>
                     <input type="text" id="genre" name="genre" class="form-control" required>
@@ -74,13 +74,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-6 col-xs-offset-2">
+            <div class="col-xs-12 col-md-6 col-md-offset-2">
                 <div class="form-group">
                     <label for="ISBN">ISBN</label><br>
                     <input type="number" id="ISBN" name="ISBN" class="form-control" required>
                 </div>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                     <label for="price">Price</label><br>
                     <input type="number" id="price" name="price" class="form-control" required>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="form-group">
                     <label for="details">Details</label><br>
                     <textarea id="details" name='details' class="form-control" required></textarea>
@@ -96,14 +96,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="form-group">
                     <input type="submit" class="form-control">
                 </div>
             </div>
         </div>
         <div class="row">
-        	<div class="col-xs-8 col-xs-offset-2">
+        	<div class="col-xs-12 col-md-8 col-md-offset-2">
         		<div style="color: red; text-align:center">${error}</div>
         	</div>
         </div>
