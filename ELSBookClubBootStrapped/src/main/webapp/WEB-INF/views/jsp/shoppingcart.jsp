@@ -64,15 +64,15 @@
 							<th style="text-align: center">Delete</th>
 						</tr>
 					
-       					<c:forEach var="bean" items="${beanList}">
+       					<c:forEach var="cart" items="${shoppingcartlist}">
        						<form:form>
 							<tr>
-								<td style="text-align: center">${bean.getTitle()}</td>
-								<td style="text-align: center">${bean.getAuthor()}</td>
-								<td style="text-align: center">${bean.getISBN()}</td>
-								<td style="text-align: center">${bean.getPrice()}</td>
+								<td style="text-align: center">${cart.getName()}</td>
+								<td style="text-align: center">${cart.getAuthor()}</td>
+								<td style="text-align: center">${cart.getIsbn()}</td>
+								<td style="text-align: center">${cart.getPrice()}</td>
 								<td style="text-align: center">test</td>
-								<td style="text-align: center"><input type="submit" formmethod="post" formaction="shoppingcart/${bean.getISBN()}" value="Delete"></td>
+								<td style="text-align: center"><input type="submit" formmethod="post" formaction="shoppingcart/${cart.getIsbn()}" value="Delete"></td>
 							</tr>
 							</form:form>
 						</c:forEach>
