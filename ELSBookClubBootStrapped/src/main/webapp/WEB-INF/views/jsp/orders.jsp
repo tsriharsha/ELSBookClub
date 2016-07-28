@@ -45,7 +45,7 @@
 	<div class="container">
 		<form:form name="bookForm" method="POST">
         <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
                 <div class="page-header">
                     <h2>My Orders</h2>
                 </div>
