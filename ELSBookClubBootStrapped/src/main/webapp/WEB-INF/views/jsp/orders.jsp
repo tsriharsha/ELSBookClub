@@ -61,7 +61,6 @@
 							<th style="text-align: center">ISBN</th>
 							<th style="text-align: center">Price</th>
 							<th style="text-align: center">Order ID</th>
-							<th style="text-align: center">Print</th>
 						</tr>
 					
        					<c:forEach var="bean" items="${itemList}">
@@ -72,7 +71,6 @@
 								<td style="text-align: center">${bean.getIsbn()}</td>
 								<td style="text-align: center">${bean.getPrice()}</td>
 								<td style="text-align: center">test</td>
-								<td style="text-align: center"><input type="submit" formmethod="post" formaction="orders/${bean.getIsbn()}" value="Print"></td>
 							</tr>
 							</form:form>
 						</c:forEach>
