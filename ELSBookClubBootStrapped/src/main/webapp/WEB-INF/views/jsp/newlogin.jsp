@@ -19,6 +19,25 @@
 
 
 <body>
+<nav id="theNavbar" class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a id="theNavbarBrand" class="navbar-brand" href="elsevier.com"
+				target="_blank">ELSEVIER</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/ELSBookBootStrapped/adduser"><span
+						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 	<div class="container">
 		<div class="col-xs-12">
 			<form:form name="loginForm" method="post">
