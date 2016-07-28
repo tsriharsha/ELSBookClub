@@ -25,13 +25,8 @@
 			<a id="theNavbarBrand" class="navbar-brand" href="elsevier.com"
 				target="_blank">ELSEVIER</a>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/ELSBookBootStrapped/adduser">Add User</a></li>
-		</ul>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/ELSBookBootStrapped/adduser"><span
-						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 				<li><a href="/ELSBookBootStrapped/newlogin"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</ul>
