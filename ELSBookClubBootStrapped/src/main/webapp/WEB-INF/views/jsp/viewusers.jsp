@@ -62,12 +62,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${beanList}" var="bean">
+						<c:forEach items="${userlist}" var="user">
 							<tr>
-								<td>${bean.getfName()}</td>
-								<td>${bean.getlName()}</td>
-								<td>${bean.getEmail()}</td>
-								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="post" formaction="delete/${bean.getEmail()}">
+								<td>${user.getFirstname()}</td>
+								<td>${user.getLastname()}</td>
+								<td>${user.getEmail()}</td>
+								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="post" formaction="delete/${user.getEmail()}">
 							</tr>
 						</c:forEach>
 					</tbody>
