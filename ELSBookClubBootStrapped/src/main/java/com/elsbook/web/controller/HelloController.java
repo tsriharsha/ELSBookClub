@@ -113,6 +113,7 @@ public class HelloController {
 	@RequestMapping(value="/adduser", method = RequestMethod.POST)
     public String submit(Model model, HttpSession session, @ModelAttribute("bean") RegistrationBean bean) {
 		String email = bean.getEmail();
+		System.out.println(email);
 		try {
 			User user = dataServices.getUser(email);
 			if(user != null){

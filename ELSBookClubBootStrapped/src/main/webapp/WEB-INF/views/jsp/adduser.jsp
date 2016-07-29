@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,48 +79,39 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-md-offset-2">
-				<div class="page-header">
-					<h1>Add New User</h1>
-					<div class="clearfix"></div>
+			<form:form name="submitForm" method="POST">
+				<div align="center">
+					<table>
+						<tr>
+							<td>First Name</td>
+							<td><input type="text" class="form-control" name="firstName" /></td>
+						</tr>
+
+						<tr>
+							<td>Last Name</td>
+							<td><input type="text" class="form-control" name="lastName" /></td>
+						</tr>
+
+
+						<tr>
+							<td>Email</td>
+							<td><input type="email" class="form-control" name="email" /></td>
+						</tr>
+
+						<tr>
+							<td>Password</td>
+							<td><input class="form-control" type="password"
+								name="password" /></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><button type="submit"
+									class="btn btn-primary form-control">Submit</button></td>
+						</tr>
+					</table>
+
 				</div>
-				<!--First & Last Name-->
-				<div class="form-group">
-					<div class="row">
-						<div class="col-xs-12 col-md-6">
-							<label id="lblFirstName" class="control-label">First Name</label>
-							<input id="txtFirstName" class="form-control input-lg"
-								placeholder="First Name" autofocus required>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<label id="lblLastName" class="control-label">Last Name</label> <input
-								id="txtLastName" class="form-control input-lg"
-								placeholder="Last Name" required>
-						</div>
-					</div>
-				</div>
-				<!--Email Address-->
-				<div class="form-group">
-					<div class="row">
-						<div class="col-xs-12">
-							<label id="lblEmailAddress" class="control-label">Email
-								Address</label> <input id="txtEmailAddress"
-								class="form-control input-lg" placeholder="Email Address"
-								required>
-						</div>
-					</div>
-				</div>
-				<!--Password-->
-				<div class="form-group">
-					<div class="row">
-						<div class="col-xs-12">
-							<label id="lblPassword" class="control-label">Password</label> <input
-								id="txtPassword" class="form-control input-lg" type="password"
-								placeholder="Password" required>
-						</div>
-					</div>
-				</div>
-				<button type="button" class="btn btn-primary btn-lg">Add
-					User</button>
+			</form:form>
 			</div>
 		</div>
 	</div>
