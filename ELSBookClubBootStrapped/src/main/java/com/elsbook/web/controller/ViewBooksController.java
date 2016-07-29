@@ -2,9 +2,13 @@ package com.elsbook.web.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 import com.elsbook.web.model.Items;
 import com.elsbook.web.services.DataServices;
 import com.elsbook.web.controller.TestLibrary;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,20 +28,27 @@ public class ViewBooksController {
 	@RequestMapping(value="/viewbooks", method = RequestMethod.GET)
 	public String init(Model model, HttpSession session){
 		int numitems = 5;
-		List<Items> itemslist = TestLibrary.dummyItemsList(numitems);
-		model.addAttribute("itemslist", itemslist);
+		Set<Items> itemslist;
+		try {
+			itemslist = dataServices.getItemsList();
+			model.addAttribute("itemslist", itemslist);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "viewbooks";
 	}
 	
-	@RequestMapping(value="/viewbooks/{isbn}", method = RequestMethod.POST)
-	public String submit(Model model, @PathVariable("isbn") long isbn){
+	@RequestMapping(value="/deletebook/{isbn}", method = RequestMethod.POST)
+	public String submit(Model model, @PathVariable("isbn") long isbn,  HttpServletRequest request){
 		/*try {
 			dataServices.deleteItems(isbn);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		return "redirect:viewbooks";
+		String referer = request.getHeader("Referer");
+	    return "redirect:"+ referer;
 	}
 }
 

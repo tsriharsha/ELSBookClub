@@ -31,7 +31,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -57,7 +57,7 @@
 					</li>
 						
 					</c:when>
-					<c:when test="${loggedin != null && oggedin.getUsergroup() == 2 }">
+					<c:when test="${loggedin != null && loggedin.getUsergroup() == 2 }">
 					`<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">Welcome,
 								${loggedin.getFirstname()}<span class="caret"></span>
@@ -152,6 +152,12 @@
         </form:form>
     </div>
     
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
 </body>
 </html>

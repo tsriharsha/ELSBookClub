@@ -16,7 +16,7 @@
 </head>
 
 <!-- Navigation Menu -->
-	<nav id="theNavbar" class="navbar navbar-inverse">
+<nav id="theNavbar" class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -30,7 +30,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -121,7 +121,7 @@
             <div class="col-xs-12 col-md-2">
                 <div class="form-group">
                     <label for="price">Price</label><br>
-                    <input type="number" id="price" name="price" class="form-control" required>
+                    <input type="number" step="0.01" min = 0 id="price" name="price" class="form-control" required>
                 </div>
             </div>
         </div>

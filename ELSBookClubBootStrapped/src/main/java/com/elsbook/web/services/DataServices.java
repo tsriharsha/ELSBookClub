@@ -32,6 +32,7 @@ public interface DataServices {
 	public boolean addItems(Items item) throws Exception;
 	public Items getItems(long isbn) throws Exception;
 	public List<String> getItemsRest()throws Exception;
+	public Set<Items> getItemsList() throws Exception;
 	public boolean deleteItems(long isbn)throws Exception;
 	public Set<Items> searchItems(Criterion itemsCriteria) throws Exception;
 	

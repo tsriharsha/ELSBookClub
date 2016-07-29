@@ -30,7 +30,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -100,14 +100,14 @@
 							<th style="text-align: center">Order ID</th>
 						</tr>
 					
-       					<c:forEach var="bean" items="${itemList}">
+       					<c:forEach var="bean" items="${itemList}" varStatus="loop">
        						<form:form>
 							<tr>
 								<td style="text-align: center">${bean.getName()}</td>
 								<td style="text-align: center">${bean.getAuthor()}</td>
 								<td style="text-align: center">${bean.getIsbn()}</td>
 								<td style="text-align: center">${bean.getPrice()}</td>
-								<td style="text-align: center">test</td>
+								<td style="text-align: center">${orderidlist.get(loop.index).toString()}</td>
 							</tr>
 							</form:form>
 						</c:forEach>

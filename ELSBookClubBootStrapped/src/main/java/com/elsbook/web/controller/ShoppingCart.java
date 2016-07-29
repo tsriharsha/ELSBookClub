@@ -1,6 +1,7 @@
 package com.elsbook.web.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -38,17 +39,12 @@ public class ShoppingCart {
 	
 	public void removeFromCart(String isbn, String price) {
 		boolean exists = false;
-		for(String cartItem : isbnList){
-			if(cartItem.equals(isbn)){
-				exists = true;
-				int index = this.isbnList.indexOf(cartItem);
-				isbnList.remove(index);
-				amount.remove(index);
-			}
-		}
-		if(exists == false){
-			this.price -= new Float(price);
-		}
+		System.out.println(isbnList);
+		System.out.println(isbn);
+		System.out.println(price);
+		amount.remove(isbnList.indexOf(isbn));
+		isbnList.remove(isbn);
+		this.price -= Long.parseLong(price);
 	}
 	
 	public void destroy(){
@@ -74,12 +70,24 @@ public class ShoppingCart {
 		this.isbnList = isbnList;
 	}
 
+	public int getAmount(int index){
+		return this.amount.get(index);
+	}
+	
 	public ArrayList<Integer> getAmount() {
 		return amount;
 	}
 
 	public void setAmount(ArrayList<Integer> amount) {
 		this.amount = amount;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
 	}
 	
 	

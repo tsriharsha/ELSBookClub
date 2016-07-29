@@ -1,7 +1,9 @@
 package com.elsbook.web.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,14 +30,25 @@ public class ViewUserController {
 	@RequestMapping(value="/viewusers", method = RequestMethod.GET)
 	public String init(Model model, HttpSession session){
 		int numitems = 5;
-		List<User> userlist = TestLibrary.dummyUserList(numitems);
-		model.addAttribute("userlist", userlist);
+		Set<User> userlist;
+		try {
+			userlist = dataServices.getUserList();
+			ArrayList<User> userList = new ArrayList<User>();
+			userList.addAll(userlist);
+			Collections.sort(userList);
+			model.addAttribute("userlist", userList);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
 		return "viewusers";
 	}
 	
 	
-	@RequestMapping(value="/viewusers/delete/{email}", method = RequestMethod.GET)
-	public String delete(Model model, @PathVariable("email") String email){
+	@RequestMapping(value="/viewusers/delete/{email}", method = RequestMethod.POST)
+	public String delete(Model model, @PathVariable("email") String email, HttpServletRequest request){
 		//Use DAO to remove user
 		try{
 			dataServices.deleteUser(email);
@@ -44,7 +57,8 @@ public class ViewUserController {
 			System.out.println(e);
 		}
 		
-		return "viewusers";
+		String referer = request.getHeader("Referer");
+	    return "redirect:"+ referer;
 	}
 	
 }

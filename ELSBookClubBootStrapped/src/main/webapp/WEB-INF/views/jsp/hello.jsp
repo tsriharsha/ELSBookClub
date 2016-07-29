@@ -10,6 +10,7 @@
 	var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/easy-autocomplete.min.css" rel="stylesheet" />
 </head>
 
 <nav id="theNavbar" class="navbar navbar-inverse">
@@ -26,7 +27,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -87,9 +88,11 @@
 			Elsevier Book Club <span class="label label-default"></span>
 		</h1>
 		<div class="form-group">
+		<form action="search">
 			<input id="mySearchBar" class="form-control input-lg" name="search"
 				id="inputlg" type="text"
 				placeholder="Search for books by Author, Title or ISBN..">
+		</form>
 		</div>
 	</div>
 </div>
@@ -104,6 +107,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.min.js"></script>
 <script>
 	jQuery.ajax({
 		url : "rest/list/items",
@@ -121,6 +126,30 @@
 
 		timeout : 120000,
 	});
+	var options = {
+			url : "rest/list/items",
+			theme: "bootstrap",
+			list: {
+				showAnimation: {
+					type: "fade", //normal|slide|fade
+					time: 400,
+					callback: function() {}
+				},
+
+				hideAnimation: {
+					type: "slide", //normal|slide|fade
+					time: 400,
+					callback: function() {}
+				},
+				match: {
+					enabled: true
+				},
+				maxNumberOfElements: 5				
+			},
+			requestDelay: 300
+		};
+
+		$("#mySearchBar").easyAutocomplete(options);
 </script>
 </body>
 </html>

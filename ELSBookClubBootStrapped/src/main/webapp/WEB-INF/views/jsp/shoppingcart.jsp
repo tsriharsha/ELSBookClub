@@ -30,7 +30,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -88,6 +88,8 @@
                 </div>
             </div>
         </div>
+   <c:choose>
+		<c:when test="${shoppingcart.getIsbnList().size() > 0}">     
 		<div class="row">
 					
 			<div class="table-container">
@@ -98,19 +100,19 @@
 							<th style="text-align: center">Author</th>
 							<th style="text-align: center">ISBN</th>
 							<th style="text-align: center">Price</th>
-							<th style="text-align: center">Order ID</th>
+							<th style="text-align: center">Amount</th>
 							<th style="text-align: center">Delete</th>
 						</tr>
 					
-       					<c:forEach var="cart" items="${shoppingcartlist}">
+       					<c:forEach var="cart" items="${shoppingcartlist}" varStatus="loop">
        						<form:form>
 							<tr>
 								<td style="text-align: center">${cart.getName()}</td>
 								<td style="text-align: center">${cart.getAuthor()}</td>
 								<td style="text-align: center">${cart.getIsbn()}</td>
 								<td style="text-align: center">${cart.getPrice()}</td>
-								<td style="text-align: center">test</td>
-								<td style="text-align: center"><input type="submit" formmethod="post" formaction="shoppingcart/${cart.getIsbn()}" value="Delete"></td>
+								<td style="text-align: center">${shoppingcart.getAmount(loop.index)}</td>
+								<td style="text-align: center"><input type="submit" formmethod="post" formaction="removefromcart/${cart.getIsbn()}+${cart.getPrice()}" value="Delete"></td>
 							</tr>
 							</form:form>
 						</c:forEach>
@@ -123,7 +125,14 @@
         <div class="buttonRight">
         	<a href="/ELSBookBootStrapped/checkout" class="btn btn-primary">Proceed to Checkout</a>
         </div>
+        </c:when>
+        </c:choose>
    </div>
-
+		<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

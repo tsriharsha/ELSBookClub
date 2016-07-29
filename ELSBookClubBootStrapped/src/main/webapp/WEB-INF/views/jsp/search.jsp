@@ -24,7 +24,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -89,7 +89,7 @@
 								<h5>ISBN: ${bean.getIsbn() }</h5>
 								<h3 style="color: #FF8200">${bean.getName() }</h3>
 								<h4 style="color: #007398">Price: $${bean.getPrice() }</h4>
-								<p style="color: #A7A8AA">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+								<p style="color: #A7A8AA">${bean.printDetails()}</p>
 								<div class="col-xs-12" style="text-align: center;">
 									<a href="addtocart/${bean.getIsbn()}+${bean.getPrice()}"
 										class="btn btn-primary" style="width: 100%;">Add to Cart</a>

@@ -31,7 +31,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -108,7 +108,7 @@
 								<td style="text-align: center">${book.getAuthor()}</td>
 								<td style="text-align: center">${book.getIsbn()}</td>
 								<td style="text-align: center">${book.getPrice()}</td>
-								<td style="text-align: center"><input type="submit" formmethod="post" formaction="viewbooks/${book.getIsbn()}" class="delete btn btn-danger btn-md" value="Delete"></td>
+								<td style="text-align: center"><input type="submit" formmethod="post" formaction="deletebook/${book.getIsbn()}" class="delete btn btn-danger btn-md" value="Delete"></td>
 								
 							</tr>
 							</form:form>

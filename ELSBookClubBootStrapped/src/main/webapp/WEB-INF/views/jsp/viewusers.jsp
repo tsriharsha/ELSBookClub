@@ -33,7 +33,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li><a href="/ELSBookBootStrapped/">Home</a>
-				<li><a href="/ELSBookBootStrapped/">Browse</a>
+				<li><a href="/ELSBookBootStrapped/search?search=">Browse</a>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="shoppingcart"><span
@@ -104,7 +104,7 @@
 								<td>${user.getFirstname()}</td>
 								<td>${user.getLastname()}</td>
 								<td>${user.getEmail()}</td>
-								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="post" formaction="delete/${user.getEmail()}">
+								<td><input type="submit" class="delete btn btn-danger btn-md" value="Delete" formmethod="post" formaction="viewusers/delete/${user.getEmail()}">
 							</tr>
 						</c:forEach>
 					</tbody>

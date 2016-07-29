@@ -27,6 +27,7 @@ public class ShoppingCartController {
 		
 		ShoppingCart cart = (ShoppingCart) session.getAttribute("shoppingcart");
 		System.out.println(cart);
+		if(cart != null){
 		List<Items> shoppingcartlist = new ArrayList<Items>();
 		for(String i : cart.getIsbnList()){
 			try {
@@ -39,6 +40,7 @@ public class ShoppingCartController {
 		}
 		//List<Items> shoppingcartlist = cart.generateCart();//TestLibrary.dummyItemsList(numitems);
 		model.addAttribute("shoppingcartlist", shoppingcartlist);
+		}
 		return "shoppingcart";
 	}
 	

@@ -18,7 +18,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @Entity
 @Table(name = "items")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Items implements Serializable {
+public class Items implements Serializable, Comparable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -106,11 +106,30 @@ public class Items implements Serializable {
 	public void setDetails(String details) {
 		this.details = details;
 	}
+	
+	public String printDetails(){
+		if(this.details.length()>60)
+			return this.details.substring(0, 57)+"...";
+		else
+			return this.details;
+		
+	}
 
 	@Override
 	public String toString() {
 		return "Items [isbn=" + isbn + ", name=" + name + ", author=" + author + ", genre=" + genre + ", price=" + price
 				+ ", details=" + details + "]";
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		if(arg0 instanceof Items){
+			if(this.getIsbn()>((Items)arg0).getIsbn())
+				return 1;
+			else
+				return -1;
+		}
+		else return -1;
 	}
 
 	

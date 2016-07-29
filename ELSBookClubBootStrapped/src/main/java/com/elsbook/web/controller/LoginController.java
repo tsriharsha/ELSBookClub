@@ -27,7 +27,18 @@ public class LoginController {
 	@Autowired
 	DataServices dataServices;
 	
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String initlogin(Model model, HttpSession session) {
+    	User loginBean = (User) session.getAttribute("loggedin");
+    	if(loginBean != null  && loginBean.getEmail() != null & loginBean.getPassword() != null){
+    		model.addAttribute("msg", "welcome " + loginBean.getEmail());
+            return "redirect:/";
+    	}
+        model.addAttribute("msg", "Please Enter Your Login Details");
+        return "redirect:newlogin";
+    }
+	
+    @RequestMapping(value = "/newlogin", method = RequestMethod.GET)
     public String init(Model model, HttpSession session) {
     	User loginBean = (User) session.getAttribute("loggedin");
     	if(loginBean != null  && loginBean.getEmail() != null & loginBean.getPassword() != null){
@@ -38,7 +49,7 @@ public class LoginController {
         return "newlogin";
     }
  
-    @RequestMapping(value="/login", method = RequestMethod.POST)
+    @RequestMapping(value="/newlogin", method = RequestMethod.POST)
     public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean, HttpSession session) {
     	try{
     		User user = dataServices.getUser(loginBean.getUserName());
@@ -65,7 +76,7 @@ public class LoginController {
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logout(HttpSession session){
     	session.invalidate();
-    	return "redirect:login";
+    	return "redirect:newlogin";
     }
 
 }

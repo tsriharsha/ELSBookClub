@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class User implements Serializable, Comparable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -105,6 +105,17 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstname=" + firstname
 				+ ", lastname=" + lastname + ", usergroup=" + usergroup + "]";
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		if(arg0 instanceof User){
+			if(this.getId()>((User)arg0).getId())
+				return 1;
+			else
+				return -1;
+		}
+		else return -1;
 	}
 
 }

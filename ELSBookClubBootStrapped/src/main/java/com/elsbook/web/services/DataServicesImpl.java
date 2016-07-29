@@ -126,6 +126,11 @@ public class DataServicesImpl implements DataServices {
 		return dataDao.searchItems(itemsCriteria);
 	}
 
+	@Override
+	public Set<Items> getItemsList() throws Exception {
+		return dataDao.getItemList();
+	}
+
 	
 
 
