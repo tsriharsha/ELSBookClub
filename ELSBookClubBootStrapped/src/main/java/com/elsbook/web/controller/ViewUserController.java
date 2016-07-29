@@ -50,8 +50,9 @@ public class ViewUserController {
 	@RequestMapping(value="/viewusers/delete/{email}", method = RequestMethod.POST)
 	public String delete(Model model, @PathVariable("email") String email, HttpServletRequest request){
 		//Use DAO to remove user
+		System.out.println(email);
 		try{
-			dataServices.deleteUser(email);
+			dataServices.deleteUser(email+".com");
 		}
 		catch (Exception e){
 			System.out.println(e);

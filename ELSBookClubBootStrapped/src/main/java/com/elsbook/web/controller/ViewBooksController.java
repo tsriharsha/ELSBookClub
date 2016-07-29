@@ -41,12 +41,12 @@ public class ViewBooksController {
 	
 	@RequestMapping(value="/deletebook/{isbn}", method = RequestMethod.POST)
 	public String submit(Model model, @PathVariable("isbn") long isbn,  HttpServletRequest request){
-		/*try {
+		try {
 			dataServices.deleteItems(isbn);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		String referer = request.getHeader("Referer");
 	    return "redirect:"+ referer;
 	}
