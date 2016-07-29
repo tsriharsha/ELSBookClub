@@ -82,7 +82,7 @@
 		<div class="col-xs-12">
 			<div class="row text-center">
 				<c:forEach var="bean" items="${searchlist}">
-					<div class="col-md-3 col-sm-6">
+					<div class="col-xs-12 col-md-3">
 						<div class="thumbnail">
 							<img src="http://placehold.it/500x300" alt="">
 							<div class="caption">
